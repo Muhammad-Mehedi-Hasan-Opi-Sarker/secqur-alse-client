@@ -1,0 +1,11 @@
+body,
+html {
+  margin: 0px;
+  padding: 0px;
+  position: fixed;
+  background-image: url('https://i.ibb.co/MhNWzHG/17973908.jpg');
+  background-size: cover;
+}
+canvas{
+  filter: blur(1px);
+}
