@@ -1,4 +1,6 @@
 import React from 'react';
+import { toast } from 'react-toastify';
+
 
 const Home = () => {
     const imgKey = '452c5f4511f175dd5a83f4dc78d1024a';
@@ -8,6 +10,7 @@ const Home = () => {
         const birth = event.target.birth.value;
         const gender = event.target.gender.value;
         const img = event.target.img.files[0];
+        event.target.reset();
         const formData = new FormData();
         formData.append('image', img);
         const url = `https://api.imgbb.com/1/upload?key=${imgKey}`;
@@ -36,7 +39,12 @@ const Home = () => {
                     })
                         .then((response) => response.json())
                         .then((data) => {
-                            console.log('Success:', data);
+                            if (data.insertedId) {
+                               toast.success('Data Sent')
+                            }
+                            else{
+                                toast.error('Data Not Sent')
+                            }
                         })
                 }
             })
