@@ -5,7 +5,7 @@ const Home = () => {
 
     }
     return (
-        <div className='px-12'>
+        <div className='px-12 mb-7'>
             <form onSubmit={handleSubmit}>
 
                 <div className='grid lg:grid-cols-3 mb-5'>
