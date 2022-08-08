@@ -9,6 +9,7 @@ const Home = () => {
         const name = event.target.name.value;
         const birth = event.target.birth.value;
         const gender = event.target.gender.value;
+        const entryDate=new Date();
         const img = event.target.img.files[0];
         event.target.reset();
         const formData = new FormData();
@@ -27,6 +28,7 @@ const Home = () => {
                         name: name,
                         birth: birth,
                         gender: gender,
+                        entryDate:entryDate,
                         image: image
                     }
 
@@ -58,7 +60,7 @@ const Home = () => {
                         <label className="label">
                             <span className="label-text">What is your name?</span>
                         </label>
-                        <input name='name' type="text" placeholder="Type You Name"
+                        <input suggetion name='name' type="text" placeholder="Type You Name"
                             className="input input-bordered w-full max-w-xs" />
                     </div>
 
