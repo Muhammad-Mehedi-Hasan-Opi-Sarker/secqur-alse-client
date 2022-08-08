@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const List = ({props}) => {
+const List = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
         const url = `http://localhost:5000/list`;
@@ -27,7 +27,7 @@ const List = ({props}) => {
                                     <div class="flex items-center space-x-3">
                                         <div class="avatar">
                                             <div class="mask mask-squircle w-12 h-12">
-                                                <img src={show.image} alt="Avatar Tailwind CSS Component" />
+                                                <a href={show.image}><img src={show.image} alt="Avatar Tailwind CSS Component" /></a>
                                             </div>
                                         </div>
                                         <div>

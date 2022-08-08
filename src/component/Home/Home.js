@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+import Search from '../Search';
 
 
 const Home = () => {
+
+    const [count, setCount] = useState(0);
+    setInterval(() => setCount((oldCount) => oldCount + 1), 10000);
+
     const imgKey = '452c5f4511f175dd5a83f4dc78d1024a';
     const handleSubmit = event => {
         event.preventDefault()
         const name = event.target.name.value;
-        const birth = event.target.birth.value;
+        const oldBirth = event.target.birth.value;
         const gender = event.target.gender.value;
-        const entryDate=new Date();
+        const jormo = new Date(oldBirth);
+        const personAge = jormo.getFullYear()
+
+        const dateObj = new Date();
+        let month = dateObj.getMonth() + 1; //months from 1-12
+        let day = dateObj.getDate();
+        let year = dateObj.getFullYear();
+        let entryDate = year + "-" + month + "-" + day;
+        // console.log('entry date', entryDate)
+        let todayDate = new Date();
+        let newYear = todayDate.getFullYear()
+
+        let birth = newYear - personAge;
+
+
         const img = event.target.img.files[0];
         event.target.reset();
         const formData = new FormData();
@@ -28,7 +47,7 @@ const Home = () => {
                         name: name,
                         birth: birth,
                         gender: gender,
-                        entryDate:entryDate,
+                        entryDate: entryDate,
                         image: image
                     }
 
@@ -42,9 +61,9 @@ const Home = () => {
                         .then((response) => response.json())
                         .then((data) => {
                             if (data.insertedId) {
-                               toast.success('Data Sent')
+                                toast.success('Data Sent')
                             }
-                            else{
+                            else {
                                 toast.error('Data Not Sent')
                             }
                         })
@@ -53,6 +72,9 @@ const Home = () => {
     }
     return (
         <div className='px-12 mb-7'>
+
+            {count}
+
             <form onSubmit={handleSubmit}>
 
                 <div className='grid lg:grid-cols-3 mb-5'>
@@ -103,6 +125,7 @@ const Home = () => {
 
                 <input className='btn btn-primary' type="submit" value="Submit" />
             </form>
+
         </div>
     );
 };
