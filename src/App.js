@@ -7,6 +7,7 @@ import Footer from './component/Footer/Footer';
 import Data from './component/Data/Data';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import NoFound from './component/NoFound';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/data' element={<Data></Data>}></Route>
+        <Route path='*' element={<NoFound></NoFound>}></Route>
       </Routes>
       <ToastContainer />
       <Footer></Footer>

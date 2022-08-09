@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import Search from '../Search';
-
 
 const Home = () => {
 
@@ -27,7 +25,6 @@ const Home = () => {
         let newYear = todayDate.getFullYear()
 
         let birth = newYear - personAge;
-
 
         const img = event.target.img.files[0];
         event.target.reset();

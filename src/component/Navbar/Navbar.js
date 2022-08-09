@@ -38,7 +38,7 @@ const Navbar = () => {
             <div className="navbar-center">
                 <Link to='/home' className="btn btn-ghost normal-case text-xl">Secquralse</Link>
             </div>
-            <div className="navbar-end">
+            {/* <div className="navbar-end">
                 <div className="form-control lg:visible invisible">
                     <div className="input-group">
                         <input type="text" placeholder="Search…" className="input input-bordered" />
@@ -47,7 +47,7 @@ const Navbar = () => {
                         </button>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };
