@@ -1,11 +1,6 @@
-import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
 const Home = () => {
-
-    const [count, setCount] = useState(0);
-    setInterval(() => setCount((oldCount) => oldCount + 1), 10000);
-
     const imgKey = '452c5f4511f175dd5a83f4dc78d1024a';
     const handleSubmit = event => {
         event.preventDefault()
@@ -68,9 +63,7 @@ const Home = () => {
             })
     }
     return (
-        <div className='px-12 mb-7'>
-
-            {count}
+        <div className='px-12 mb-32'>
 
             <form onSubmit={handleSubmit}>
 

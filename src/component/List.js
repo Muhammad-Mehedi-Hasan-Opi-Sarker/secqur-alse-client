@@ -1,12 +1,29 @@
 import React, { useEffect, useState } from 'react';
 
 const List = () => {
+    const [reload, setReload] = useState(false);
     const [searchTerm, setSearchTerm] = useState("")
     const [data, setData] = useState([]);
     useEffect(() => {
         const url = `http://localhost:5000/list`;
         fetch(url).then(res => res.json()).then(data => setData(data))
-    }, [])
+    }, [reload])
+    // delete for data 
+    const handleDelete = id => {
+        console.log('delete', id)
+        const proceed = window.confirm('Are you sure')
+        if (proceed) {
+            const url = `http://localhost:5000/list/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    
+                    setReload(!reload);
+                })
+        }
+    }
 
     return (
         <div className='mb-52 px-12'>
@@ -67,7 +84,13 @@ const List = () => {
                                         </td>
                                         <td>{show.gender}</td>
                                         <td>{show.entryDate}</td>
-
+                                        <td>
+                                            <button
+                                                onClick={() => handleDelete(show._id)}
+                                                class="btn btn-circle btn-outline">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                                            </button>
+                                        </td>
                                     </tr>
                                 )
                             })
