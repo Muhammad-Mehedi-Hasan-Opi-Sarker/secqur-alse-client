@@ -5,7 +5,7 @@ const List = () => {
     const [searchTerm, setSearchTerm] = useState("")
     const [data, setData] = useState([]);
     useEffect(() => {
-        const url = `http://localhost:5000/list`;
+        const url = `https://thawing-wave-97755.herokuapp.com/list`;
         fetch(url).then(res => res.json()).then(data => setData(data))
     }, [reload])
     // delete for data 
@@ -13,13 +13,13 @@ const List = () => {
         console.log('delete', id)
         const proceed = window.confirm('Are you sure')
         if (proceed) {
-            const url = `http://localhost:5000/list/${id}`;
+            const url = `https://thawing-wave-97755.herokuapp.com/list/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(data => {
-                    
+
                     setReload(!reload);
                 })
         }

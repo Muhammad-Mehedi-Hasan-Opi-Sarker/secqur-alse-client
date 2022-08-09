@@ -43,7 +43,7 @@ const Home = () => {
                         image: image
                     }
 
-                    fetch('http://localhost:5000/list', {
+                    fetch('https://thawing-wave-97755.herokuapp.com/list', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ const Home = () => {
                         <label className="label">
                             <span className="label-text">What is your name?</span>
                         </label>
-                        <input suggetion name='name' type="text" placeholder="Type You Name"
+                        <input required suggetion name='name' type="text" placeholder="Type You Name"
                             className="input input-bordered w-full max-w-xs" />
                     </div>
 
@@ -80,7 +80,7 @@ const Home = () => {
                         <label className="label">
                             <span className="label-text">Date Of Birth</span>
                         </label>
-                        <input name='birth' type="date" className="input input-bordered w-full max-w-xs" />
+                        <input required name='birth' type="date" className="input input-bordered w-full max-w-xs" />
                     </div>
 
                     <div className="form-control w-full max-w-xs">
@@ -89,7 +89,7 @@ const Home = () => {
 
                         </label>
                         <select name='gender' className="select select-bordered">
-                            <option disabled selected>Select One</option>
+                            <option selected>Select One</option>
                             <option>Male</option>
                             <option>Female</option>
                         </select>
@@ -107,7 +107,7 @@ const Home = () => {
                         <label className="label">
                             <span className="label-text">Upload photo</span>
                         </label>
-                        <input name='img' accept="image/*" type="file" placeholder="Type here"
+                        <input required name='img' accept="image/*" type="file" placeholder="Type here"
                             className="input input-bordered w-full max-w-xs" />
                     </div>
 

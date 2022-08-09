@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import List from '../List';
 
 const Data = () => {
